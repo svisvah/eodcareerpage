@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/js/intlTelInput-jquery.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.2.1/css/intlTelInput.css" />
 
@@ -231,8 +232,10 @@ h6.my-title {
                                             <div class="form-group col-md-6">
                                                 <label for="contact">Contact Number</label>
                                                 <input type="text" name="contact" id="contact" class="mandatory form-control">
-                                                <span id="contact-error" class="error-message"></span>
+                                                <input type="hidden" name="country_code" id="country_code" >
+                                                <span id="contact-error" class="error-message"></span>                                           
                                             </div>
+                                            
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6">
@@ -438,8 +441,9 @@ h6.my-title {
                                                         <input type="radio" name="other-country" value="no" />
                                                         <span>No</span>
                                                     </label>
+                                                    </div>
                                                     <span id="other-country-error" class="error-message"></span>
-                                                </div>
+                                                
                                                 <div class="form-group preferrence-country col-md-12" style="display:none">
                                                     <label for="prefrred-country">Preferrence Countries</label>
                                                     <span>Separate with comma</span>
@@ -528,7 +532,7 @@ h6.my-title {
                                                     </label>
                                                 </div>
                                               </div>
-                                                <span id="work-freelance-error" class="error-message"></span>
+                                                <span id="fresher-error" class="error-message"></span>
                                             </div>
                                                 </div>
                                     <div class="my-work-exp">
@@ -590,6 +594,7 @@ h6.my-title {
                                                 <select name="worked-city-select" id="worked-city-select" class="mandatory form-control">
 
                                                 </select>
+                                                <span id="worked-city-error" class="error-message"></span>
                                                 <input style="display:none" type="text" name="worked-city" id="worked-city" class="mandatory form-control">
                                                 <span id="worked-city-error" class="error-message"></span>
                                             </div>
@@ -612,7 +617,7 @@ h6.my-title {
                                                     <div class="form-group col-md-4">
                                                         <label for="name">Currency</label>
                                                         <select id="salary-currency" name="salary-currency" class="mandatory form-control">
-                                                            <option disabled selected value>Select</option>
+                                                             <option disabled selected value>Select</option>
                                                             <?php
                                                             if ($currencyResult) {
                                                                 while ($currenncyRow = mysqli_fetch_assoc($currencyResult)) { ?>
@@ -667,10 +672,6 @@ h6.my-title {
                                                 <span id="current-company-error" class="error-message"></span>
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
                                 </div>
 
@@ -832,10 +833,14 @@ h6.my-title {
                                     </div>
                                 </div>
                                 <div class="col-sm-1 col-md-6 col-lg-12 radiobtn pt-50">
-                                    <div class=" align-items-center pb-15">
-                                        <h5>Certifications</h5>
+                                    <div class="add-additional align-items-center pb-15">
+                                   
+                                        <h5>Certifications</h5><div><span class="add-more-items certi"></span><span class="remove-last certi"></span></div>
                                     </div>
-                                    <div class="">
+                                  
+                                    <div class=" align-items-center pb-15">
+                                    <div class="my-certi">
+                                    <h6 class="my-title"></h6>
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="name">Certification Name</label>
@@ -857,7 +862,7 @@ h6.my-title {
                                             <div class="form-group col-md-6">
                                                 <label for="name">Certification Expirty Date</label>
                                                 <input type="date" id="certification-expiry" name="certification-expiry" class="mandatory form-control">
-                                                <span id="certification-id" class="error-message"></span>
+                                                <span id="certification-expiry" class="error-message"></span>
                                                 <!-- <input class="form-check-input" type="checkbox" id="certification-expiry-no">
                                                 <label class="form-check-label" for="certification-expiry-no">
                                                     No Expiry
@@ -866,11 +871,18 @@ h6.my-title {
                                         </div>
                                     </div>
                                 </div>
+                                                </div>
+                                                </div>
                                 <div class="col-sm-1 col-md-6 col-lg-12 radiobtn pt-50">
-                                    <div class=" align-items-center pb-15">
-                                        <h5>Accomplishments</h5>
+                                <div class="add-additional align-items-center pb-15">
+                                        <h5>Accomplishments</h5><div><span class="add-more-items accomp"></span><span class="remove-last accomp"></span></div>
                                     </div>
-                                    <div class="">
+                                  
+                                    <div class=" align-items-center pb-15">
+                                    <div class="my-accomp">
+                                    <h6 class="my-title"></h6>
+                                   
+                                    
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="name">Name (Patent / White Paper / Articles / Presentation / Reasearch Projects)</label>
@@ -886,7 +898,13 @@ h6.my-title {
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                                 <label for="name">Upload proofs</label>
-                                                <input type="file" id="upload-proof" name="upload-proof" class="mandatory form-control">
+                
+                                                <input type="file" id="upload-proof" name="upload-proof" class="mandatory form-control" class="upload-proof">
+                                               
+                                              
+                                                <input type="hidden" id="upload-proof-path" name="upload-proof-path" >
+                                               
+                                               
                                                 <span id="upload-proof-error" class="error-message"></span>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -922,10 +940,12 @@ h6.my-title {
                                                 </div>
                                             </div>
                                         </div>
+                                               
+                                               
                                         <div class="row">
                                             
                                             <div class="form-group col-md-6">
-                                                <label for="name">Certification Expirty Date</label>
+                                                <label for="name">Accomplishment Expirty Date</label>
                                                 <input type="date" id="acc-expiry" name="acc-expiry" class="mandatory form-control">
                                                 <span id="acc-id" class="error-message"></span>
                                                 <!-- <input class="form-check-input" type="checkbox" id="certification-expiry-no">
@@ -934,8 +954,8 @@ h6.my-title {
                                                 </label> -->
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                        </div>
+                                                </div>
 
                                 <div class="col-lg-12 pt-50">
                                     <div class="col-md-12 text-center submit-btn">
@@ -950,7 +970,7 @@ h6.my-title {
                 </div>
             </div>
         </div>
-    </div>
+    </div>skill-sets
 </div>
 <div id="country-options" style="display: none;">
     <?php
@@ -961,6 +981,7 @@ h6.my-title {
     }
     ?>
 </div>
+
 <script>
 
 $(document).ready(function() {
@@ -1070,6 +1091,35 @@ $(document).ready(function() {
             $("div.my-work-exp:last").remove();
         }
     });
+    $("body").delegate("span.add-more-items.certi", "click", function() {
+        var len = $('.my-certi').length + 1;
+        $(".my-certi").first().clone().insertAfter("div.my-certi:last");
+        $("div.my-certi:last .my-title").text("Certifications"+len);
+    });
+
+    $("body").delegate("span.remove-last.certi", "click", function() {
+        var len = $('.my-certi').length;
+        if(len == 1){
+        }else{
+            $("div.my-certi:last").remove();
+        }
+    });
+    $("body").delegate("span.add-more-items.accomp", "click", function() {
+        var len = $('.my-accomp').length + 1;
+        $(".my-accomp").first().clone().insertAfter("div.my-accomp:last");
+        $("div.my-accomp:last .my-title").text("Accomplishment"+len);
+    });
+
+    $("body").delegate("span.remove-last.accomp", "click", function() {
+        var len = $('.my-accomp').length;
+        if(len == 1){
+        }else{
+            $("div.my-accomp:last").remove();
+        }
+    });
+
+  
+
 
     $("body").delegate("input[name='other-country']", "click", function() {
         var selectedValue = $(this).val();
@@ -1089,9 +1139,9 @@ $(document).ready(function() {
         }
     });
 
-    $("#contact").intlTelInput({
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js"
-    });
+    // $("#contact").intlTelInput({
+    //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js"
+    // });
 
     $("body").delegate("button#remove-visa", "click", function() {
         $(this).parent().parent('.individual-visa.additional').remove();
@@ -1137,6 +1187,48 @@ $(document).ready(function() {
     });
 </script>
 
+<script>
+$(document).on("change", "#upload-proof", function() {
+    var fileInput = $(this);
+    var file = fileInput.prop("files")[0];
+   
+   
+    $(this).next("#upload-proof-path").addClass("currentclass");
+    
+   
+
+
+    // Check if a file is selected
+    if (file) {
+        var formData = new FormData();
+        formData.append('file', file);
+
+        // Send file to PHP using AJAX
+        $.ajax({
+            url: 'fileupload.php', // Change this to the path of your PHP file
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                $(".currentclass").val(response);
+                console.log("File path received from PHP:", response);
+                $("#upload-proof-path").removeClass("currentclass");
+
+                // Log hidden field values after they have been set by the AJAX response
+                
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
+        });
+    } else {
+        // No file selected
+        console.log("No file selected");
+    }
+});
+
+</script>
 <script>
     $(document).ready(function () {
     $("#career-submit").click(function () {
@@ -1319,6 +1411,193 @@ $(document).ready(function() {
             $('#skill-sets-error').text("Please Choose the Skill sets");
             isValid = false;
         }
+        if($('input[type=radio][name=fresher]:checked').length == 0)
+        {
+            $("#fresher-error").text("Please select a option");
+            isValid=false;
+        }
+//Work experiene validation.
+if($('input[type=radio][name=fresher]:checked').val() == "no")
+{
+        $(".my-work-exp").each(function()
+        {
+            var role=$(this).find("input[name='role-name']");
+            var company=$(this).find("input[name='company-name']");
+            var client=$(this).find("input[name='client-name']");
+            var domain=$(this).find("select[name='client-domain']");
+            var workcountry=$(this).find("select[name='country-worked']");
+            var workcity=$(this).find("select[name='worked-city-select']");
+            var workfrom=$(this).find("input[name='work-from']");
+            var workto=$(this).find("input[name='work-to']");
+            var salcur=$(this).find("select[name='salary-currency']");
+            var salanum=$(this).find("input[name='salary-per-anum']");
+            var mow=$(this).find("select[name='mode-of-work']");
+            var worktype=$(this).find("select[name='work-type']");
+            var curcom=$(this).find("select[name='current-company']");
+
+            var rolval=role.val();
+            var comval=company.val();
+            var clientval=client.val();
+            var domainval=domain.val()
+            var workcounval=workcountry.val();
+            var workcityval=workcity.val();
+            var workfromval=workfrom.val();
+            var worktoval=workto.val();
+            var salcurval=salcur.val();
+            var salanumval=salanum.val();
+            var mowal=mow.val();
+            var typeval=worktype.val();
+            var curcomval=curcom.val();
+
+            if(rolval.length===0)
+            {
+                role.next(".error-message").text("Pleae enter your role name");
+                isValid=false;
+            }
+            if(comval.length===0)
+            {
+                company.next(".error-message").text("Pleae enter your company name");
+                isValid=false;
+            }
+            if(clientval.length===0)
+            {
+                client.next(".error-message").text("Pleae enter your client name");
+                isValid=false;
+            }
+            if(domainval===null)
+            {
+                domain.next(".error-message").text("Please select the domain");
+                isValid=false;
+            }
+            if(workcounval===null)
+            {
+                workcountry.next(".error-message").text("Please select the work country");
+                isValid=false;
+            }
+            if(workcityval===null)
+            {
+                workcity.next(".error-message").text("Please select the work city");
+                isValid=false;
+            }
+            if(workfromval.length===0)
+            {
+                workfrom.next(".error-message").text("Please enter the work from date");
+                isValid=false;
+            }
+            if(worktoval.length===0)
+            {
+                workto.next(".error-message").text("Please enter the work to date");
+                isValid=false;
+
+            }
+            if(salcurval===null)
+            {
+                salcur.next(".error-message").text("Pleae choose the salary currency");
+                isValid=false;
+            }
+            if(salanumval.length===0)
+            {
+                salanum.next(".error-message").text("Pleae enter your salary");
+                isValid=false;
+            }
+            if(mowal===null)
+            {
+                mow.next(".error-message").text("Please choose the mode of work");
+                isValid=false;
+            }
+            if(typeval===null)
+            {
+                worktype.next(".error-message").text("Please choose the work type");
+                isValid=false;
+            }
+            if(curcomval===null)
+            {
+                curcom.next(".error-message").text("Please choose whether it is your current company or not");
+                isValid=false;
+            }
+
+        });
+    }
+
+    //Education validation
+    $(".my-education ").each(function()
+        {
+                var level = $(this).find("select[name='education-level']");
+                var course = $(this).find("select[name='course']");
+                var coursetype = $(this).find("select[name='course-type']");
+                var specialization = $(this).find("select[name='special']");
+                var university_name = $(this).find("input[name='university-name']");
+                var universitu_country = $(this).find("select[name='university-country']");
+                var start_year = $(this).find("input[name='start-year']");
+                var course_duration = $(this).find("input[name='course-duration']");
+                var graduate_year = $(this).find("input[name='graduate-year']");
+                var grade_level = $(this).find("input[name='grade-level']");
+
+                var levelval=level.val();
+                var courseval=course.val();
+                var coursetypeval=coursetype.val();
+                var specializationval=specialization.val();
+                var universityval=university_name.val();
+                var unicounval=universitu_country.val();
+                var startval=start_year.val();
+                var coursedurval=course_duration.val();
+                var graduval=graduate_year.val();
+                var gradeval=grade_level.val();
+
+            
+            if(levelval===null)
+            {
+                level.next(".error-message").text("Pleae select your education level");
+                isValid=false;
+            }
+            if(courseval===null)
+            {
+                course.next(".error-message").text("Pleae select your course");
+                isValid=false;
+            }
+            if(coursetypeval===null)
+            {
+                coursetype.next(".error-message").text("Pleae select your course type");
+                isValid=false;
+            }
+            if(specializationval===null)
+            {
+                specialization.next(".error-message").text("Please select your specialization");
+                isValid=false;
+            }
+            if(universityval.length===0)
+            {
+                university_name.next(".error-message").text("Please enter the university name");
+                isValid=false;
+            }
+            if(unicounval===null)
+            {
+                universitu_country.next(".error-message").text("Please select the university country");
+                isValid=false;
+            }
+            if(startval.length===0)
+            {
+                start_year.next(".error-message").text("Please enter the starting date");
+                isValid=false;
+            }
+            if(coursedurval.length===0)
+            {
+                course_duration.next(".error-message").text("Please enter the the course duration date");
+                isValid=false;
+
+            }
+            if(graduval.length===0)
+            {
+                graduate_year.next(".error-message").text("Pleease enter your graduation date");
+                isValid=false;
+            }
+            if(gradeval.length===0)
+            {
+                grade_level.next(".error-message").text("Pleae enter your grade level");
+                isValid=false;
+            }
+        });
+
 
         $(".my-social-media .row").each(function() {
             var nameInput = $(this).find("input[name='social-media-name']");
@@ -1338,6 +1617,81 @@ $(document).ready(function() {
 
         
         });
+        $(".my-certi").each(function() {
+            var certiname = $(this).find("input[name='certification-name']");
+            var certiid = $(this).find("input[name='certification-id']");
+            var certinameValue = certiname.val().trim();
+            var certiidValue = certiid.val().trim();
+            
+
+            // Check if either name or URL is provided
+            if ((certinameValue === "" && certiidValue !== "") ) {
+                
+                certiname.next(".error-message").text("Please enter your certification name.");
+                isValid = false;
+            }  
+            if((certiidValue === "" && certinameValue!=="")){
+                certiid.next(".error-message").text("Please enter your certification id");
+                isValid=false; 
+            }
+            
+
+        
+        });
+        $(".my-accomp").each(function() {
+            var accompname = $(this).find("input[name='accomplishment-name']");
+            var uploadproof = $(this).find("input[name='upload-proof-path']");
+            var startdate =  $(this).find("input[name='acc-start']");
+            var enddate = $(this).find("input[name='acc-end']");
+
+            var accompnamevalue=accompname.val();
+            var uploadproofval=uploadproof.val();
+            var startdateval=startdate.val();
+            var enddateval=enddate.val();
+            
+
+            // Check if either name or URL is provided
+            if (( accompnamevalue !== "" && uploadproofval === "" && startdateval ==="" && enddateval ==="") ) {
+                
+                uploadproof.next(".error-message").text("Please upload the proof.");
+                startdate.next(".error-message").text("Please enter the start date.");
+                enddate.next(".error-message").text("Please enter the end date.");
+                
+                isValid = false;
+            }  
+            if (( uploadproofval !== "" && accompnamevalue === "" && startdateval ==="" && enddateval ==="") ) {
+                
+                accompname.next(".error-message").text("Please enter your accomplishment name.");
+                startdate.next(".error-message").text("Please enter the start date.");
+                enddate.next(".error-message").text("Please enter the end date.");
+                
+                isValid = false;
+            } 
+            if (( accompnamevalue === "" && uploadproofval === "" && startdateval !=="" && enddateval ==="") ) {
+                accompname.next(".error-message").text("Please enter your accomplishment name.");
+                uploadproof.next(".error-message").text("Please upload the proof.");
+                
+                enddate.next(".error-message").text("Please enter the end date.");
+                
+                isValid = false;
+            } 
+            if (( accompnamevalue === "" && uploadproofval === "" && startdateval ==="" && enddateval !=="") ) {
+
+                accompname.next(".error-message").text("Please enter your accomplishment name.");
+                uploadproof.next(".error-message").text("Please upload the proof.");
+                startdate.next(".error-message").text("Please enter the start date.");
+               
+                
+                isValid = false;
+            } 
+            
+
+        
+        });
+
+
+
+        
 
 
 
@@ -1361,12 +1715,6 @@ $(document).ready(function() {
                 index++;
                 
             });
-
-            
-           
-
-//social media ajax request
-   
 
 //Education
 var educationData = [];
@@ -1400,13 +1748,7 @@ var educationData = [];
                 index++;
                 
             });
-            
-            
-           
-
-           
-
-//work-experience
+  
 var WorkExperienceData = [];
             var index=1;
             $(".my-work-exp").each(function() {
@@ -1448,20 +1790,78 @@ var WorkExperienceData = [];
                 
             });
 
-            var socialMediaJSON = JSON.stringify(socialMediaData);
-            var educationJSON = JSON.stringify(educationData);
-            var WorkExperienceJSON = JSON.stringify(WorkExperienceData);
+//Certifications
+var CertificationData = [];
+            var index=1;
+            $(".my-certi").each(function() {
+                
+                var cername = $(this).find("#certification-name").val();
+                var cerid = $(this).find("#certification-id").val();
+                var cerurl = $(this).find("#certification-url").val();
+                var cerexp = $(this).find("#certification-expiry").val();
+
+
+                CertificationData.push({
+                    "Certification ":index,
+                    "Certification Name":cername,
+                    "Certification id":cerid,
+                    "Certification Url":cerurl,
+                    "Certification Expiry":cerexp
+                });
+                index++;
+            });
+
            
-var fileInput = document.getElementById("upload-proof");
-var file = fileInput.files[0];
+
+//Accomplishment            
+var AccomplishmentData = [];
+var index = 1;
+
+$(".my-accomp").each(function() {
+    var accname = $(this).find("#accomplishment-name").val();
+    var accurl = $(this).find("#accomplishment-url").val();
+    var accid = $(this).find("#accomplishment-id").val();
+    var accreg = $(this).find("#accomplishment-reg").val();
+    var uplpro = $(this).find("#upload-proof-path").val();
+    var accsta = $(this).find("#acc-start").val();
+    var accend = $(this).find("#acc-end").val();
+    var accexp = $(this).find("#acc-expiry").val();
+
+    AccomplishmentData.push({
+        "Accomplishment ": index,
+        "Accomplishment Name": accname,
+        "Accomplishment Url": accurl,
+        "Upload docs": uplpro,
+        "Accomplishment id": accid,
+        "Accomplishment reg": accreg,
+        "Starting Date": accsta,
+        "Ending Date": accend,
+        "Accomplishment Expiry": accexp
+    });
+    index++;
+});
+
+
+
+
+
+var socialMediaJSON = JSON.stringify(socialMediaData);
+var educationJSON = JSON.stringify(educationData);
+var WorkExperienceJSON = JSON.stringify(WorkExperienceData);
+var certificateJSON=JSON.stringify(CertificationData);
+var accomplishmentJSON=JSON.stringify(AccomplishmentData);
+
+
+
 
 var formData=new FormData();
 formData.append("resumeheading", $("#resume-headline").val());
 formData.append("firstname", $("#first-name").val());
 formData.append("lastname", $("#last-name").val());
-formData.append("file", file); // Assuming 'file' is the file input element
+//formData.append("file", file); // Assuming 'file' is the file input element
 formData.append("formaddress", $("#address").val());
-formData.append("contact", $("#contact").val());
+formData.append("contact",$("#contact").val());
+formData.append("country_code",$("#country_code").val());
 formData.append("citystate", $("#city-state").val());
 formData.append("postcode", $("#postcode").val());
 formData.append("workauthority", $("#work-authority").val());
@@ -1484,20 +1884,24 @@ formData.append("expsal", $('#exp-salary').val());
 formData.append("expcur", $('#exp-currency').val());
 formData.append("expsf", $('#exp-sf').val());
 formData.append("skillSets", $('#skill-sets').val());
-formData.append("certiname", $("#certification-name").val());
-formData.append("certiid", $("#certification-id").val());
-formData.append("certiurl", $("#certification-url").val());
-formData.append("certexp", $("#certification-expiry").val());
-formData.append("accompname", $("#accomplishment-name").val());
-formData.append("accompurl", $("#accomplishment-url").val());
-formData.append("accompreg", $("#accomplishment-reg").val());
-formData.append("accstart", $("#acc-start").val());
-formData.append("accend", $("#acc-end").val());
-formData.append("accexpiry", $("#acc-expiry").val());
-formData.append("file", file);
+// formData.append("certiname", $("#certification-name").val());
+// formData.append("certiid", $("#certification-id").val());
+// formData.append("certiurl", $("#certification-url").val());
+// formData.append("certexp", $("#certification-expiry").val());
+// formData.append("accompname", $("#accomplishment-name").val());
+// formData.append("accompurl", $("#accomplishment-url").val());
+// formData.append("accompreg", $("#accomplishment-reg").val());
+// formData.append("accstart", $("#acc-start").val());
+// formData.append("accend", $("#acc-end").val());
+// formData.append("accexpiry", $("#acc-expiry").val());
+// formData.append("file", file);
 formData.append("socialmedia",socialMediaJSON);
 formData.append("education",educationJSON);
 formData.append("workexperience",WorkExperienceJSON);
+formData.append("certification",certificateJSON);
+formData.append("accomplishment",accomplishmentJSON);
+
+console.log()
 
 
 
@@ -1557,5 +1961,12 @@ $(document).ready(function() {
 
 </script>
 
+<script>
+var instance = $("#contact")
+instance.intlTelInput();
+$("#contact").on("blur", function() {
+    $('#country_code').val(instance.intlTelInput('getSelectedCountryData').dialCode);
+})
+                                                </script>
 
 <?php include "footer.php"; ?>

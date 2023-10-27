@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="481.89mm" height="196.14mm" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1366 556">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-1, .cls-2 {
+        opacity: .25;
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect x="0" width="1366" height="556" style="fill: none;"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="343.95" y1="739.65" x2="847.6" y2="739.65" gradientTransform="translate(152.95 -394.38) rotate(29.07)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4585e8"/>
+      <stop offset="1" stop-color="#5c28c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="127.77" y1="739.92" x2="708.7" y2="739.92" gradientTransform="translate(-167.17 -322.4) rotate(8.93)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3628c0" stop-opacity="0"/>
+      <stop offset="1" stop-color="#4585e8"/>
+    </linearGradient>
+  </defs>
+  <g style="clip-path: url(#clippath);">
+    <g>
+      <polygon points="415.23 288.05 145.25 327.45 44.39 580.95 213.5 795.06 483.47 755.65 584.33 502.15 415.23 288.05" style="fill: url(#linear-gradient); opacity: .25;"/>
+      <polygon points="194.5 151.31 -116.22 257.48 -179.63 579.66 67.67 795.67 378.4 689.5 441.81 367.32 194.5 151.31" style="fill: url(#linear-gradient-2); opacity: .25;"/>
+    </g>
+  </g>
+</svg>

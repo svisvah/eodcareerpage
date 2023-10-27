@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116" height="116" viewBox="0 0 116 116">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#59d566"/>
+      <stop offset="1" stop-color="#23b376"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_39872" data-name="Group 39872" transform="translate(-881 -4263)">
+    <circle id="Ellipse_226" data-name="Ellipse 226" cx="58" cy="58" r="58" transform="translate(881 4263)" fill="url(#linear-gradient)"/>
+    <path id="Icon_ionic-md-phone-portrait" data-name="Icon ionic-md-phone-portrait" d="M32.671,2.25H12.008A4.124,4.124,0,0,0,7.875,6.341V43.159a4.124,4.124,0,0,0,4.133,4.091H32.671A4.124,4.124,0,0,0,36.8,43.159V6.341A4.124,4.124,0,0,0,32.671,2.25Zm.517,36.964h-21.7V10.286h21.7Z" transform="translate(916.125 4296.25)" fill="#fff"/>
+  </g>
+</svg>

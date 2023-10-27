@@ -1,0 +1,443 @@
+
+/* EOD form design starts */
+
+
+.eodformstyle .header{
+	margin-bottom: 80px;
+}
+#description{
+	font-size: 24px;
+}
+
+.eodformbg{
+	border-radius: 1.25rem;
+	border: 3px solid #FFF;
+	background: #F6F7FB;
+	box-shadow: 0px 20px 94px -50px rgba(0, 43, 73, 0.25);
+}
+
+.eodformstyle .form-wrap {
+    /* background: rgba(255,255,255,1); */
+    width: 100%;
+    max-width: 1080px;
+    padding: 70px 100px;
+    margin: 0 auto;
+    position: relative;
+    /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px; */
+    /* border-radius: 10px; */
+    /* -webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15); */
+}
+/* .eodformstyle .form-wrap:before{
+	content: "";
+	width: 90%;
+	height: calc(100% + 60px);
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	position: absolute;
+	top: -30px;
+	background: #00bcd9;
+	z-index: -1;
+	opacity: 0.8;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+} */
+.eodformstyle .form-group{
+	margin-bottom: 25px;
+}
+.eodformstyle .form-group > label{
+	display: block;
+	font-size: 18px;	
+	color: #000;
+}
+.eodformstyle .custom-control-label{
+	color: #000;
+	font-size: 16px;
+}
+.eodformstyle .form-control{
+	height: 50px;
+	background: #ecf0f4;
+	border-color: transparent;
+	padding: 0 15px;
+	font-size: 16px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.eodformstyle .form-control:focus{
+	border-color: #00bcd9;
+	-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+}
+.eodformstyle textarea.form-control{
+	height: 160px;
+	padding-top: 15px;
+	resize: none;
+}
+
+/* EOD form design starts */
+
+
+/* Radio Button */
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+.radiobtn form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+.radiobtn label {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+   /* Accessible outline */
+   /* Remove comment to use */
+   /* &:focus-within {
+		outline: .125em solid $primary-color;
+   }
+	*/
+}
+.radiobtn label input {
+	position: absolute;
+	left: -9999px;
+}
+.radiobtn label input:checked + span {
+	background-color: #cedcff;
+}
+.radiobtn label input:checked + span:before {
+	box-shadow: inset 0 0 0 0.4375em #00005c;
+}
+.radiobtn label span {
+    display: flex;
+    align-items: center;
+    padding: 1.375em 2.75em 1.375em 1.375em;
+    border-radius: 1rem;
+    transition: 0.25s ease;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: #11354a;
+}
+.radiobtn label span:hover {
+	background-color: #d6dbe5;
+}
+.radiobtn label span:before {
+	display: flex;
+	flex-shrink: 0;
+	content: "";
+	background-color: #fff;
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin-right: 0.375em;
+	transition: 0.25s ease;
+	box-shadow: inset 0 0 0 0.125em #00005c;
+}
+
+.footertitle {
+    color: #031236;
+    background: linear-gradient(90deg, #ffffff 0%, rgba(197, 52, 200, 0.00) 86.84%);
+    font-weight: 600;
+    font-size: 2.5rem;
+    padding: 0.5rem 2rem;
+}
+
+/* Radio Button Ends */
+
+.formstep {
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+	background-color: #2782D1;
+}
+
+
+
+.ourTeam {
+    background: #319ac6;
+    height:800px;
+}
+
+.ourTeam h2 {
+    color: #fff;
+    margin: 0 0 30px 0
+}
+
+.ourTeam .i {
+    margin-top: 30px
+}
+
+.ourTeam .i .c {
+    background: #fff;
+    -webkit-box-shadow: 0 4px 0 #2b86ac;
+    -moz-box-shadow: 0 4px 0 #2b86ac;
+    box-shadow: 0 4px 0 #2b86ac;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 110px
+}
+
+.ourTeam .i .c .wrap {
+    position: relative
+}
+
+.ourTeam .i .c .wrap img {
+    width: 100%;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease
+}
+
+.ourTeam .i .c .wrap .info {
+    padding: 30px 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease
+}
+
+.ourTeam .i .c .wrap .info .name {
+    margin: 0;
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0 0 8px 0
+}
+
+.ourTeam .i .c .wrap .info .position {
+    margin: 0;
+    font-size: 14px;
+    font-size: 1.4rem;
+    color: #555659
+}
+
+.ourTeam .i .c .more {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease
+}
+
+.ourTeam .i .c .more p {
+    margin: 0 18px 30px 18px;
+    line-height: 22px
+}
+
+.ourTeam .i .c .more .socials {
+    margin: 0 0 20px 0
+}
+
+.ourTeam .i .c .more .socials a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    font-size: 2.2rem;
+    color: #fff;
+    margin: 0 0 0 3px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    text-align: center;
+    -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 3px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, .1)
+}
+
+.ourTeam .i .c .more .socials a:first-child {
+    margin: 0
+}
+
+.ourTeam .i .c .more .socials a.facebook {
+    background: #3262b9
+}
+
+.ourTeam .i .c .more .socials a.facebook:hover {
+    background: #2d57a5
+}
+
+.ourTeam .i .c .more .socials a.twitter {
+    background: #3dd7e5
+}
+
+.ourTeam .i .c .more .socials a.twitter:hover {
+    background: #27d2e2
+}
+
+.ourTeam .i .c .more .socials a.google-plus {
+    background: #e23535
+}
+
+.ourTeam .i .c .more .socials a.google-plus:hover {
+    background: #de2020
+}
+
+.ourTeam .i .c .more .socials a.linkedin {
+    background: #069
+}
+
+.ourTeam .i .c .more .socials a.linkedin:hover {
+    background: #005580
+}
+
+.ourTeam .i .c:hover img {
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    -webkit-opacity: 0;
+    opacity: 0
+}
+
+.ourTeam .i .c:hover .info {
+    top: 0
+}
+
+.ourTeam .i .c:hover .more {
+    bottom: 0
+}
+
+/* 11-10-2023 */
+#dba-service-form h5,#staff-aug-form h5  {
+    color: #0460AF;
+    font-weight: 600;
+}
+#dba-service-form .btn.formstep, #staff-aug-form .btn.formstep {
+    position: absolute;
+    left: -120px;
+}
+
+span.title-additional {
+    font-weight: normal;
+}
+#dba-service-form button#dba-submit, #staff-aug-form button#staff-augment-submit{
+    width: auto;
+    background: #F03890;
+}
+#dba-service-form .submit-btn, #staff-aug-form .submit-btn{
+    display: flex;
+    justify-content: center;
+}
+label.req-field:after {
+    content: "*";
+    color: red;
+}
+span.dba-tech-others {
+    padding: 0.3em 2.75em 0.3em 1.375em !important;
+}
+input#dba-tech-other {
+    height: 40px;
+    font-size: 14px;
+}
+.or-image {
+    text-align: center;
+}
+span.error-message {
+    color: red;
+}
+span.icon-doc:after {
+    background: url(../images/eod-img/doc-icon.png)no-repeat 0px 0px;
+    content: "";
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    top: 20px;
+    right: 5px;
+    position: absolute;
+    display: inline-block;
+    background-size: 25px 25px;
+}
+span.icon-view:after {
+    font-family: 'Material Design Icons';
+    color: #0460AF;
+    font-size: 25px;
+    line-height: 0px;
+    right: 5px;
+    position: absolute;
+    display: inline-block;
+    content: '\F06D0' !important;
+}
+/* 11-10-2023 */
+
+/* 12-10-2023 */
+
+.btn.formstep.feedback {
+    background-color: #17BA6C;
+}
+p.msg-tag.success {
+    text-align: center;
+    color: green;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 20px;
+}
+#skill-list .skill-in {
+    background: #2782D1;
+    border-radius: 20px;
+    padding: 10px 16px 10px 16px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    margin: 0px 17px 10px 0px;
+}
+#skill-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+button#add-skill {
+    background: #00C67E !important;
+}
+.mdi-close::before {
+    content: "\F0156";
+    background: #62b2f8b8;
+    border-radius: 10px;
+    padding: 2px;
+}
+span.remove-skill.mdi-close {
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: 'Material Design Icons';
+}
+.form-group.wrk-location .form-check {
+    display: -webkit-box;
+}
+/* 12-10-2023 */

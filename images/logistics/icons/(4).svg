@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1164" data-name="Rectangle 1164" width="32" height="32" fill="none" stroke="#ff637d" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_228" data-name="Group 228" transform="translate(2 2)">
+    <g id="Group_227" data-name="Group 227" transform="translate(-2 -2)" clip-path="url(#clip-path)">
+      <path id="Path_204" data-name="Path 204" d="M22.767,25.015v2.408a.661.661,0,0,1-.669.653H1.669A.661.661,0,0,1,1,27.423V1.652A.661.661,0,0,1,1.669,1H22.1a.661.661,0,0,1,.669.652V9.985" transform="translate(1.526 1.462)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_49" data-name="Line 49" x2="14.975" transform="translate(5.66 6.991)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_50" data-name="Line 50" x2="10.143" transform="translate(5.66 14.949)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_51" data-name="Line 51" x2="14.975" transform="translate(5.66 10.85)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_52" data-name="Line 52" x2="10.143" transform="translate(5.66 18.808)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_53" data-name="Line 53" x2="10.143" transform="translate(5.66 23.043)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <ellipse id="Ellipse_12" data-name="Ellipse 12" cx="5.278" cy="5.145" rx="5.278" ry="5.145" transform="translate(18.961 13.654)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_54" data-name="Line 54" y2="5.876" transform="translate(24.239 15.767)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line id="Line_55" data-name="Line 55" x1="6.028" transform="translate(21.225 18.705)" fill="none" stroke="#ff637d" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
