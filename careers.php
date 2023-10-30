@@ -204,7 +204,7 @@ h6.my-title {
                     <div class="form-wrap eodformbg">
                         <p class="msg-tag"></p>
                         <form id="career-form" method="POST" action="carrer_back.php">
-                            <div class="success message"></div>
+                            <div class="success-message"></div>
                             <div class="row">
                                 <div class="col-lg-12 pt-50">
                                     <div class=" align-items-center pb-15">
@@ -618,7 +618,7 @@ h6.my-title {
 
                                                 </select>
                                                 <span id="worked-city-error" class="error-message"></span>
-                                                <input style="display:none" type="text" name="worked-city" id="worked-city" class="mandatory form-control">
+                                                <input style="display:none" type="text" name="worked-city-select" id="worked-city-select" class="mandatory form-control">
                                                 <span id="worked-city-error" class="error-message"></span>
                                             </div>
                                         </div>
@@ -1783,12 +1783,20 @@ if($('input[type=radio][name=fresher]:checked').val() == "no")
                 
                 var socialMediaName = $(this).find("input[name='social-media-name']").val();
                 var socialMediaURL = $(this).find("input[name='social-media-url']").val();
+                if(socialMediaName!="" && socialMediaURL!="")
+{
+
                 socialMediaData.push({
                     "socialMedia":index,
                     "name": socialMediaName,
                     "url": socialMediaURL
                 });
                 index++;
+            }
+            else
+            {
+                socialMediaData=null;
+            }
                 
             });
 
@@ -1810,10 +1818,10 @@ if($('input[type=radio][name=fresher]:checked').val() == "no")
                 });
                 index++;
             });
-            var visadetailsJSON=JSON.stringify(visadata);
+            
         }
         else{
-            var visadetailsJSON="Nil";
+            var visadata=null;
 
         }
 
@@ -1834,6 +1842,7 @@ var educationData = [];
                 var course_duration = $(this).find("input[name='course-duration']").val();
                 var graduate_year = $(this).find("input[name='graduate-year']").val();
                 var grade_level = $(this).find("input[name='grade-level']").val();
+                
                 
                 educationData.push({
                     "Education Details ":index,
@@ -1861,7 +1870,7 @@ var WorkExperienceData = [];
                 var client = $(this).find("input[name='client-name']").val();
                 var clientdom = $(this).find("select[name='client-domain']").val();
                 var countryworked = $(this).find("select[name='country-worked']").val();
-                var workedcity = $(this).find("select[name='worked-city']").val();
+                var workedcity = $(this).find("select[name='worked-city-select']").val();
                 var workfrom = $(this).find("input[name='work-from']").val();
                 var workto = $(this).find("input[name='work-to']").val();
                 var salarycur = $(this).find("select[name='salary-currency']").val();
@@ -1892,11 +1901,11 @@ var WorkExperienceData = [];
                 index++;
                 
             });
-            var certificateJSON=JSON.stringify(CertificationData);
+            
         }
         else
         {
-            var WorkExperienceJSON="Nil";
+            var WorkExperienceJSON=null;
 
         }
 
@@ -1910,6 +1919,8 @@ var CertificationData = [];
                 var cerurl = $(this).find("#certification-url").val();
                 var cerexp = $(this).find("#certification-expiry").val();
 
+if(cername!=" "&&cerid!=" "&&cerurl!=" "&&cerexp!="" )
+{
 
                 CertificationData.push({
                     "Certification ":index,
@@ -1919,6 +1930,11 @@ var CertificationData = [];
                     "Certification Expiry":cerexp
                 });
                 index++;
+            }
+            else
+            {
+                CertificationData=null;
+            }
             });
 
            
@@ -1936,7 +1952,8 @@ $(".my-accomp").each(function() {
     var accsta = $(this).find("#acc-start").val();
     var accend = $(this).find("#acc-end").val();
     var accexp = $(this).find("#acc-expiry").val();
-
+    if(accname!=" "&&accurl!=" "&&accid!=" "&&uplpro!="" &&accsta!="" &&accend!=""&&accexp!="")
+{
     AccomplishmentData.push({
         "Accomplishment ": index,
         "Accomplishment Name": accname,
@@ -1949,18 +1966,41 @@ $(".my-accomp").each(function() {
         "Accomplishment Expiry": accexp
     });
     index++;
+}
+else
+{
+    AccomplishmentData=null;
+
+}
 });
 
 
 
 
 
-var socialMediaJSON = JSON.stringify(socialMediaData);
+
 var educationJSON = JSON.stringify(educationData);
-var WorkExperienceJSON = JSON.stringify(WorkExperienceData);
 
+if(AccomplishmentData!="null")
+{
 var accomplishmentJSON=JSON.stringify(AccomplishmentData);
-
+}
+if(CertificationData!="null")
+{
+    var certificateJSON=    JSON.stringify(CertificationData);
+}
+if(WorkExperienceData!="null")
+{
+    var WorkExperienceJSON = JSON.stringify(WorkExperienceData);
+}
+if(socialMediaData!=null)
+{
+    var socialMediaJSON = JSON.stringify(socialMediaData);
+}
+if(visadata!=null)
+{
+var visadetailsJSON=JSON.stringify(visadata);
+}
 
 
 
@@ -2043,7 +2083,7 @@ console.log()
 });
       
         } else {
-            $(".sucess-message").addClass()
+            $(".success-message").addClass()
             // Handle other types of responses or errors from the server
            $(".failed-message").text("Something went wrong, Please try again");
         }

@@ -78,13 +78,14 @@ while($row=mysqli_fetch_array($result)) {
 $exploop='';
 if($workexperience!="null")
 {
+  $exptitle='<div class="details">
+  <div class="section">
+    <div class="section__title">Experience</div>';
+    
     foreach($workexperience as $value)
     {
         $exploop.=
-        '<div class="details">
-    <div class="section">
-      <div class="section__title">Experience</div>
-        <div class="section__list">
+      '  <div class="section__list">
         <div class="section__list-item">
           <div class="left">
             <div class="name">'.$value->{'Company'}.'</div>
@@ -127,6 +128,89 @@ foreach($education as $value)
   </div>';
 }
 
+
+$certiloop='';
+if($certifications!="null"){
+$certitle='<div class="section">
+<div class="section__title">Certifications</div>
+<div class="section__list">';
+foreach($certifications as $value)
+{
+  $certiloop.=' <div class="section__list-item">
+  <div class="left">
+  <div class="name">'.$value->{'Certification Name'}.'</div>
+  <div class="text"><a href="'.$value->{'Certification Url'}.'">URL LINK</a>
+  </div>
+</div>
+  <div class="right">
+    <div class="desc">
+    <label class="explabel">Certification ID:'.$value->{'Certification id'}.'</label>
+           <label class="explabel"> Expiry Date:'.$value->{'Certification Expiry'}.'</label>
+           
+  </div>
+</div>
+</div>
+</div>
+<br><br>
+';
+}
+}
+
+
+$certiloop='';
+if($certifications!="null"){
+$certitle='<div class="section">
+<div class="section__title">Certifications</div>
+<div class="section__list">';
+foreach($certifications as $value)
+{
+  $certiloop.=' <div class="section__list-item">
+  <div class="left">
+  <div class="name">'.$value->{'Certification Name'}.'</div>
+  <div class="text"><a href="'.$value->{'Certification Url'}.'">URL LINK</a>
+  </div>
+</div>
+  <div class="right">
+    <div class="desc">
+    <label class="explabel">Certification ID:'.$value->{'Certification id'}.'</label>
+           <label class="explabel"> Expiry Date:'.$value->{'Certification Expiry'}.'</label>
+           
+  </div>
+</div>
+</div>
+</div>
+<br><br>
+';
+}
+}
+
+
+$certiloop='';
+if($certifications!="null"){
+$certitle='<div class="section">
+<div class="section__title">Certifications</div>
+<div class="section__list">';
+foreach($certifications as $value)
+{
+  $certiloop.=' <div class="section__list-item">
+  <div class="left">
+  <div class="name">'.$value->{'Certification Name'}.'</div>
+  <div class="text"><a href="'.$value->{'Certification Url'}.'">URL LINK</a>
+  </div>
+</div>
+  <div class="right">
+    <div class="desc">
+    <label class="explabel">Certification ID:'.$value->{'Certification id'}.'</label>
+           <label class="explabel"> Expiry Date:'.$value->{'Certification Expiry'}.'</label>
+           
+  </div>
+</div>
+</div>
+</div>
+<br><br>
+';
+}
+}
 
 $conn->close();
 $mpdf = new \Mpdf\Mpdf();
@@ -354,26 +438,8 @@ $html='<html>
  
      '.$eduloop.'
       </div>
-<div class="section">
-      <div class="section__title">Certifications</div>
-      <div class="section__list">
-        <div class="section__list-item">
-          <div class="left">
-          <div class="name"></div>
-          <div class="text"><a href="">URL LINK</a>
-          </div>
-</div>
-          <div class="right">
-            <div class="desc">
-            <label class="explabel">Certification ID:</label>
-                   <label class="explabel"> Expiry Date:</label>
-                   
-          </div>
-        </div>
-      </div>
-      </div>
-      <br><br>
 
+       '.$certiloop.'
         
 <div class="section">
       <div class="section__title">Accomplishments</div>
