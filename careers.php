@@ -261,15 +261,27 @@ h6.my-title {
                                             
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="city-state">City / State</label>
-                                                <input type="text" name="city-state" id="city-state" class="mandatory form-control">
-                                                <span id="city-state-error" class="error-message"></span>
+                                        <div class="form-group  col-md-6">
+                                                <label for="country">Country</label>
+                                                <select id="country" name="country" class="mandatory form-control">
+                                                    <option disabled selected value>Select</option>
+                                                    
+                                                    <?php
+                                                    if ($countriesResult4) {
+                                                        while ($countriesRow2 = mysqli_fetch_assoc($countriesResult4)) { ?>
+                                                            <option value="<?= $countriesRow2['country_code']; ?>"><?= $countriesRow2['name']; ?></option>
+                                                    <?php }
+                                                    } ?> 
+                                                    </select>
+                                                <span id="country-error" class="error-message"></span>
+                                                
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="postcode">Postal Code</label>
-                                                <input type="text" name="postcode" id="postcode" class="mandatory form-control">
-                                                <span id="postcode-error" class="error-message"></span>
+                                                <div class="form-group col-md-6">
+                                                <label for="city-state">City / State</label>
+                                                <select name="city-state" id="city-state" class="mandatory form-control">
+                                                    </select>
+                                                <input style="display:none" type="text" name="city" id="city" class="mandatory form-control">
+                                                <span id="city-state-error" class="error-message"></span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -296,7 +308,7 @@ h6.my-title {
                                                 <span id="holding-visa-error" class="error-message"></span>
                                             </div>
                                         </div>
-                                        <div class="">
+                                        <div>
                                             <div class="form-group visa-yes" style="display:none">
                                                 <div class="visa-details">
                                                     <div class="individual-visa row">
@@ -332,17 +344,10 @@ h6.my-title {
 
                                         </div>
                                         <div class="row">
-                                            <div class="form-group  col-md-6">
-                                                <label for="country">Country</label>
-                                                <select id="country" name="country" class="mandatory form-control">
-                                                    <option disabled selected value>Select</option>
-                                                    <?php
-                                                    if ($countriesResult2) {
-                                                        while ($countriesRow2 = mysqli_fetch_assoc($countriesResult2)) { ?>
-                                                            <option value="<?= $countriesRow2['name']; ?>"><?= $countriesRow2['name']; ?></option>
-                                                    <?php }
-                                                    } ?>
-                                                </select>
+                                             <div class="form-group col-md-6">
+                                                <label for="postcode">Postal Code</label>
+                                                <input type="text" name="postcode" id="postcode" class="mandatory form-control">
+                                                <span id="postcode-error" class="error-message"></span>
                                             </div>
                                             <div class="form-group  col-md-6">
                                                 <label for="alter-email">Alternative E-mail</label>
@@ -618,7 +623,7 @@ h6.my-title {
 
                                                 </select>
                                                 <span id="worked-city-error" class="error-message"></span>
-                                                <input style="display:none" type="text" name="worked-city-select" id="worked-city-select" class="mandatory form-control">
+                                                <input style="display:none" type="text" name="worked-city" id="worked-city" class="mandatory form-control">
                                                 <span id="worked-city-error" class="error-message"></span>
                                             </div>
                                         </div>
@@ -1049,31 +1054,82 @@ $(document).ready(function() {
     });
     $("body").delegate("select[name='country-worked']", "change", function() {
         var selectedVal = $(this).val();
+        console.log(selectedVal);
+        $(this).parent(".form-group.col-md-6").next(".form-group").children("#worked-city-select").addClass("curcityselect");
+        $(this).parent(".form-group.col-md-6").next(".form-group").children("#worked-city").addClass("curcity");
+        
         $.ajax({
             type: 'post',
             url: 'careers-form.php',
             data: 'country-code=' + selectedVal + '&action=getstates',
             success: function(data) {
-                console.log(typeof(data));
-                if (data != '  []') {
+                console.log(typeof(data));console.log(data);
+                if (data != '[]') {
                     let allState = JSON.parse(data);
+                    console.log(allState);
+                    
                     // Clear the state select options
-                    $('#worked-city-select').empty();
-                    $('#work-city').hide();
+                    $('.curcityselect').empty();
+                    $('.curcityselect').show();
+                    $('.curcity').hide();
                     // Add the retrieved state options to the state select
-                    $('#worked-city-select').append('<option value="">Select a state</option>'); // Add a default option
-
+                    $('.curcityselect').append('<option value="">Select a state</option>'); 
+              
                     allState.forEach(function(state) {
-                        $('#worked-city-select').append($('<option>', {
+                        $('.curcityselect').append($('<option>', {
                             value: state.state_code,
                             text: state.state_name
                         }));
                     });
+                    
                 } else {
-                    $('#worked-city-select').empty();
-                    $('#worked-city').show();
-                    $('#worked-city-select').hide();
+                    $('.curcityselect').empty();
+                    $('.curcity').show();
+                    $('.curcityselect').hide();
                 }
+                $("#worked-city-select").removeClass("curcityselect");
+                $("#worked-city").removeClass("curcity");
+                
+
+            }
+        });
+    });
+
+//Country-city in basic contact information
+    $("body").delegate("select[name='country']", "change", function() {
+        var selectedVal = $(this).val();
+        console.log(selectedVal);
+        
+        $.ajax({
+            type: 'post',
+            url: 'careers-form.php',
+            data: 'country-code=' + selectedVal + '&action=getstates',
+            success: function(data) {
+                console.log(typeof(data));console.log(data);
+                if (data != '[]') {
+                    let allState = JSON.parse(data);
+                    console.log(allState);
+                    
+                    // Clear the state select options
+                    $('#city-select').empty();
+                    $('#city-select').show();
+                    $('#city').hide();
+                    // Add the retrieved state options to the state select
+                    $('#city-select').append('<option value="">Select a state</option>'); 
+              
+                    allState.forEach(function(state) {
+                        $('#city-select').append($('<option>', {
+                            value: state.state_code,
+                            text: state.state_name
+                        }));
+                    });
+                    
+                } else {
+                    $('#city-select').empty();
+                    $('#city').show();
+                    $('#city-select').hide();
+                }
+                
 
             }
         });
@@ -1340,9 +1396,15 @@ $(document).on("change", "#upload-proof", function() {
             isValid = false;
         }
 
+        var country = $("#country").val();
+        if (country === null) {
+            $("#country-error").text("Country is required.");
+            isValid = false;
+        }
+
         // City/State validation
-        var cityState = $("#city-state").val().trim();
-        if (cityState === "") {
+        var cityState = $("#city-state").val();
+        if (cityState === null) {
             $("#city-state-error").text("City/State is required.");
             isValid = false;
         }
