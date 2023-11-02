@@ -1,5 +1,6 @@
 <?php
 
+
 $host = "localhost";
 $username = "root";
 $password = '';  
@@ -45,6 +46,10 @@ while($row=mysqli_fetch_array($result)) {
     $expfreq=$row['exp_sal_frequency'];
     $prefcountries=$row['prefrred_countries'];
     $prefrredcountries=explode(',', $prefcountries);
+    $country=$row['country'];
+
+    print_r($country);
+    die();
 
    
   
@@ -134,17 +139,20 @@ $conn->close();
     <div class="section">
       <div class="section__title">Experience</div>
       <?php
-      if($workexperience!="null"){  
+      if($workexperience!="null"){    
 foreach($workexperience as $value)
 {
-  
+       
+
     ?>
 <div class="section__list">
         <div class="section__list-item">
           <div class="left">
-            <div class="name"><?php echo $value->{'Company Name'};?></div>
+            <div class="name"><?php echo $value->{'Company'};?></div>
             <div class="addr"><?php echo $value->{'City worked'};?>,<?php echo $value->{'Country worked'};?></div>
-            <div class="duration"><?php echo $value->{'Worked from'};?> - <?php  echo $value->{'Worked to'};?></div>
+            <?php $startdate= strtotime($value->{'Worked from'});
+        $enddate=strtotime($value->{'Worked to'});?>
+          <div class="duration"><?php  echo date('M-Y', $startdate)?> - <?php  echo  date('M-Y', $enddate);?></div>
           </div>
           <div class="right">
             <div class="name"><?php echo $value->{'Role Name'};?></div><br>

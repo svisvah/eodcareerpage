@@ -267,13 +267,13 @@ h6.my-title {
                                                     <option disabled selected value>Select</option>
                                                     
                                                     <?php
-                                                    if ($countriesResult4) {
-                                                        while ($countriesRow2 = mysqli_fetch_assoc($countriesResult4)) { ?>
+                                                    if ($countriesResult2) {
+                                                        while ($countriesRow2 = mysqli_fetch_assoc($countriesResult2)) { ?>
                                                             <option value="<?= $countriesRow2['country_code']; ?>"><?= $countriesRow2['name']; ?></option>
                                                     <?php }
                                                     } ?> 
                                                     </select>
-                                                <span id="country-error" class="error-message"></span>
+                                                <span id="country-error" class="error-message">
                                                 
                                             </div>
                                                 <div class="form-group col-md-6">
@@ -1111,23 +1111,23 @@ $(document).ready(function() {
                     console.log(allState);
                     
                     // Clear the state select options
-                    $('#city-select').empty();
-                    $('#city-select').show();
+                    $('#city-state').empty();
+                    $('#city-state').show();
                     $('#city').hide();
                     // Add the retrieved state options to the state select
-                    $('#city-select').append('<option value="">Select a state</option>'); 
+                    $('#city-state').append('<option value="">Select a state</option>'); 
               
                     allState.forEach(function(state) {
-                        $('#city-select').append($('<option>', {
+                        $('#city-state').append($('<option>', {
                             value: state.state_code,
                             text: state.state_name
                         }));
                     });
                     
                 } else {
-                    $('#city-select').empty();
+                    $('#city-state').empty();
                     $('#city').show();
-                    $('#city-select').hide();
+                    $('#city-state').hide();
                 }
                 
 
@@ -1981,7 +1981,7 @@ var CertificationData = [];
                 var cerurl = $(this).find("#certification-url").val();
                 var cerexp = $(this).find("#certification-expiry").val();
 
-if(cername!=" "&&cerid!=" "&&cerurl!=" "&&cerexp!="" )
+if(cername!=" " )
 {
 
                 CertificationData.push({
@@ -2014,7 +2014,7 @@ $(".my-accomp").each(function() {
     var accsta = $(this).find("#acc-start").val();
     var accend = $(this).find("#acc-end").val();
     var accexp = $(this).find("#acc-expiry").val();
-    if(accname!=" "&&accurl!=" "&&accid!=" "&&uplpro!="" &&accsta!="" &&accend!=""&&accexp!="")
+    if(accname!=" ")
 {
     AccomplishmentData.push({
         "Accomplishment ": index,
